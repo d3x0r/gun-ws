@@ -56,13 +56,13 @@ Gun.on('opt', function(ctx){
 	function acceptConnection( connection ) {
 		// connection.upgradeReq.headers['sec-websocket-protocol'] === (if present) protocol requested by client
 		// connection.upgradeReq.url  === url request
-                var accepted;
+                var accepted = true;
                 if( acceptCallbacks.Length )
                 	accepted = acceptCallbacks.find( function(cb){
                         	return cb( connection, connection.upgradeReq.headers, connection.upgradeReq.url );
                         } );
-                if( accepted ) {
-                	
+                if( !accepted ) {
+                	return;
                	}
 		gunPeers.push( connection );
 		connection.on( 'error',function(error){console.log( "WebSocket Error:", error) } );
