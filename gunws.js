@@ -10,7 +10,7 @@ const _debug = false;
 exports.attach = function( Gun ) {
 
 Gun.on('opt', function(ctx){
-	this.to.next(ctx);a
+	this.to.next(ctx);
 	var opt = ctx.opt["ws"];
 	if(ctx.once){ return }
 	var servers = [];
@@ -47,6 +47,7 @@ Gun.on('opt', function(ctx){
 	} )
 
 	gun.on('out', function(msg){
+		//console.log( "So now there's an OUT!" );
 		this.to.next( msg );
 		msg = JSON.stringify(msg);
 		gunPeers.forEach( function(peer){ peer.send( msg ) })
@@ -60,14 +61,14 @@ Gun.on('opt', function(ctx){
                 	accepted = acceptCallbacks.find( function(cb){
                         	return cb( connection, connection.upgradeReq.headers, connection.upgradeReq.url );
                         } );
-		console.log( "connect?", connection.upgradeReq.headers, connection.upgradeReq.url )
                 if( accepted ) {
                 	
-			gunPeers.push( connection );
-                }
+               	}
+		gunPeers.push( connection );
 		connection.on( 'error',function(error){console.log( "WebSocket Error:", error) } );
 
 		connection.on('message', function (msg) {
+			//console.log( "Received:", msg );
 			msg = JSON.parse(msg)
 			if ("forEach" in msg) msg.forEach(m => gun.on('in', JSON.parse(m)));
 			else gun.on('in', msg)
