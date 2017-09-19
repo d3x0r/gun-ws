@@ -1,0 +1,26 @@
+{
+  "name": "gun-ws",
+  "version": "1.0.0",
+  "description": "Extended websocket driver for Gun.",
+  "main": "gunws.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3x0r/gun-ws.git"
+  },
+  "keywords": [
+    "gun",
+    "websocket",
+    "ws",
+    "driver"
+  ],
+  "author": "d3x0r",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d3x0r/gun-ws/issues"
+  },
+  "homepage": "https://github.com/d3x0r/gun-ws#readme",
+  "dependencies": { "ws":"^2.2.0", "gun":"^0.8.0" }
+}
