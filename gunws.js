@@ -1,5 +1,5 @@
 
-const Gun = require('gun/gun');
+const Gun = require(module.filename.includes( "node_modules/gun-file" )?'../gun/gun':'gun/gun');
 
 const ws = require( 'ws' );
 
@@ -13,6 +13,7 @@ Gun.on('opt', function(ctx){
 	this.to.next(ctx);
 	var opt = ctx.opt["ws"];
 	if(ctx.once){ return }
+	if( !opt ) return;
 	var servers = [];
 	var gunPeers = [];  // used as a list of connected clients.
         var acceptCallbacks = [];
@@ -61,6 +62,7 @@ Gun.on('opt', function(ctx){
                 	accepted = acceptCallbacks.find( function(cb){
                         	return cb( connection, connection.upgradeReq.headers, connection.upgradeReq.url );
                         } );
+		console.log( "Accept:", connection.upgradeReq.url );
                 if( !accepted ) {
                 	return;
                	}

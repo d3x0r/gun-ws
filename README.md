@@ -1,5 +1,5 @@
 
-# gun-file
+# gun-ws
 
 An extended websocket driver for Gun.
 
@@ -19,7 +19,8 @@ An extended websocket driver for Gun.
 
 ### Changelog
 
-1.0.0 - Initial release
+- 1.0.1 - fix name in readme; update gun dependency
+- 1.0.0 - Initial release
 
 
 

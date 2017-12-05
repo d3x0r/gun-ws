@@ -1,6 +1,6 @@
 {
   "name": "gun-ws",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extended websocket driver for Gun.",
   "main": "gunws.js",
   "scripts": {
@@ -22,5 +22,5 @@
     "url": "https://github.com/d3x0r/gun-ws/issues"
   },
   "homepage": "https://github.com/d3x0r/gun-ws#readme",
-  "dependencies": { "ws":"^2.2.0", "gun":"^0.8.0" }
+  "dependencies": { "ws":"^2.2.0", "gun":"^0.9.0" }
 }
